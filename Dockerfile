@@ -31,7 +31,8 @@ ARG UID
 ARG GID
 
 # Set Node.js options (heap limit Allocation failed - JavaScript heap out of memory)
-# ENV NODE_OPTIONS="--max-old-space-size=4096"
+# CEAMLS: the frontend build needs more than the default Node heap (about 4 GiB).
+ENV NODE_OPTIONS="--max-old-space-size=8192"
 
 WORKDIR /app
 
