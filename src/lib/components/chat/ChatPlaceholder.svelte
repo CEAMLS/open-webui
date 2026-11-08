@@ -109,12 +109,13 @@
 			class=" mt-2 mb-4 text-3xl text-gray-800 dark:text-gray-100 text-left flex items-center gap-4"
 		>
 			<div>
-				<div class=" capitalize line-clamp-1" in:fade={{ duration: 200 }}>
-					{#if selectedModelName}
-						{selectedModelName}
-					{:else}
-						{$i18n.t('Hello, {{name}}', { name: $user?.name })}
-					{/if}
+				<div class=" line-clamp-1" in:fade={{ duration: 200 }}>
+					<!-- CEAMLS: a welcome line for every model, not the model name. -->
+					{$user?.name
+						? $i18n.t('Hi, {{name}}. How can I help you today?', {
+								name: $user.name.trim().split(/\s+/)[0]
+							})
+						: $i18n.t('How can I help you today?')}
 				</div>
 
 				<div in:fade={{ duration: 200, delay: 200 }}>

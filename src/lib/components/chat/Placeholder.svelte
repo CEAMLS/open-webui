@@ -182,15 +182,12 @@
 						class=" text-2xl @sm:text-2xl line-clamp-1 flex items-center"
 						in:fade={{ duration: 100 }}
 					>
-						{#if selectedModelName}
-							<Tooltip content={selectedModelName} placement="top" className=" flex items-center ">
-								<span class="line-clamp-1">
-									{selectedModelName}
-								</span>
-							</Tooltip>
-						{:else}
-							{$i18n.t('Hello, {{name}}', { name: $user?.name })}
-						{/if}
+						<!-- CEAMLS: a welcome line for every model, not the model name. -->
+						{$user?.name
+							? $i18n.t('Hi, {{name}}. How can I help you today?', {
+									name: $user.name.trim().split(/\s+/)[0]
+								})
+							: $i18n.t('How can I help you today?')}
 					</div>
 				</div>
 

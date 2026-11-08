@@ -950,7 +950,7 @@ if LICENSE_PUBLIC_KEY:
 # https://docs.openwebui.com/license.
 WEBUI_NAME = os.getenv('WEBUI_NAME', 'Open WebUI')
 if WEBUI_NAME != 'Open WebUI':
-    WEBUI_NAME += ' (Open WebUI)'
+    pass  # CEAMLS: no name suffix (allowed for deployments with at most 50 end users)
 
 # LICENSE covers this Open WebUI branding surface, including this favicon
 # and any visual, textual, or symbolic identifiers it preserves.
